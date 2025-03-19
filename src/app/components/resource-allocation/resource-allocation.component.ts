@@ -1,15 +1,19 @@
-import { Component, Input } from "@angular/core"
-import { CommonModule } from "@angular/common"
-import { FormsModule } from "@angular/forms"
+import { Component, Input } from '@angular/core'
+import { CommonModule } from '@angular/common'
+import { FormsModule } from '@angular/forms'
 
 @Component({
-  selector: "app-resource-allocation",
+  selector: 'app-resource-allocation',
   standalone: true,
   imports: [CommonModule, FormsModule],
   template: `
-    <div class="bg-slate-900/50 border-slate-700/50 backdrop-blur-sm rounded-lg border">
+    <div
+      class="bg-slate-900/50 border-slate-700/50 backdrop-blur-sm rounded-lg border"
+    >
       <div class="pb-2 px-6 pt-6">
-        <div class="text-slate-100 text-base font-medium">Resource Allocation</div>
+        <div class="text-slate-100 text-base font-medium">
+          Resource Allocation
+        </div>
       </div>
       <div class="px-6 pb-6">
         <div class="space-y-4">
@@ -29,7 +33,9 @@ import { FormsModule } from "@angular/forms"
           <div>
             <div class="flex items-center justify-between mb-1">
               <div class="text-sm text-slate-400">Memory Allocation</div>
-              <div class="text-xs text-purple-400">{{ memoryUsage }}% allocated</div>
+              <div class="text-xs text-purple-400">
+                {{ memoryUsage }}% allocated
+              </div>
             </div>
             <div class="h-2 bg-slate-800 rounded-full overflow-hidden">
               <div
@@ -79,4 +85,3 @@ export class ResourceAllocationComponent {
   @Input() networkStatus = 92
   priorityLevel = 3
 }
-
