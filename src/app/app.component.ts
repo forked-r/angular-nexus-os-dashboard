@@ -1,19 +1,26 @@
-import { Component, type OnInit, type OnDestroy, ViewChild, type ElementRef, type AfterViewInit } from "@angular/core"
-import { CommonModule } from "@angular/common"
-import { FormsModule } from "@angular/forms"
-import { interval, type Subscription } from "rxjs"
+import {
+  Component,
+  type OnInit,
+  type OnDestroy,
+  ViewChild,
+  type ElementRef,
+  type AfterViewInit,
+} from '@angular/core'
+import { CommonModule } from '@angular/common'
+import { FormsModule } from '@angular/forms'
+import { interval, type Subscription } from 'rxjs'
 
 // import type { DashboardService } from "./services/dashboard.service"
-import { HeaderComponent } from "./components/header/header.component"
-import { SidebarComponent } from "./components/sidebar/sidebar.component"
-import { SystemOverviewComponent } from "./components/system-overview/system-overview.component"
-import { SecurityStatusComponent } from "./components/security-status/security-status.component"
-import { SystemAlertsComponent } from "./components/system-alerts/system-alerts.component"
-import { CommunicationsLogComponent } from "./components/communications-log/communications-log.component"
-import { SystemTimeComponent } from "./components/system-time/system-time.component"
-import { QuickActionsComponent } from "./components/quick-actions/quick-actions.component"
-import { ResourceAllocationComponent } from "./components/resource-allocation/resource-allocation.component"
-import { EnvironmentControlsComponent } from "./components/environment-controls/environment-controls.component"
+import { HeaderComponent } from './components/header/header.component'
+import { SidebarComponent } from './components/sidebar/sidebar.component'
+import { SystemOverviewComponent } from './components/system-overview/system-overview.component'
+import { SecurityStatusComponent } from './components/security-status/security-status.component'
+import { SystemAlertsComponent } from './components/system-alerts/system-alerts.component'
+import { CommunicationsLogComponent } from './components/communications-log/communications-log.component'
+import { SystemTimeComponent } from './components/system-time/system-time.component'
+import { QuickActionsComponent } from './components/quick-actions/quick-actions.component'
+import { ResourceAllocationComponent } from './components/resource-allocation/resource-allocation.component'
+import { EnvironmentControlsComponent } from './components/environment-controls/environment-controls.component'
 
 interface Particle {
   x: number
@@ -27,7 +34,7 @@ interface Particle {
 }
 
 @Component({
-  selector: "app-root",
+  selector: 'app-root',
   standalone: true,
   imports: [
     CommonModule,
@@ -44,21 +51,42 @@ interface Particle {
     EnvironmentControlsComponent,
   ],
   template: `
-    <div [ngClass]="theme" class="min-h-screen bg-gradient-to-br from-black to-slate-900 text-slate-100 relative overflow-hidden">
+    <div
+      [ngClass]="theme"
+      class="min-h-screen bg-gradient-to-br from-black to-slate-900 text-slate-100 relative overflow-hidden"
+    >
       <!-- Background particle effect -->
-      <canvas #canvasRef class="absolute inset-0 w-full h-full opacity-30"></canvas>
+      <canvas
+        #canvasRef
+        class="absolute inset-0 w-full h-full opacity-30"
+      ></canvas>
 
       <!-- Loading overlay -->
-      <div *ngIf="isLoading" class="absolute inset-0 bg-black/80 flex items-center justify-center z-50">
+      <div
+        *ngIf="isLoading"
+        class="absolute inset-0 bg-black/80 flex items-center justify-center z-50"
+      >
         <div class="flex flex-col items-center">
           <div class="relative w-24 h-24">
-            <div class="absolute inset-0 border-4 border-cyan-500/30 rounded-full animate-ping"></div>
-            <div class="absolute inset-2 border-4 border-t-cyan-500 border-r-transparent border-b-transparent border-l-transparent rounded-full animate-spin"></div>
-            <div class="absolute inset-4 border-4 border-r-purple-500 border-t-transparent border-b-transparent border-l-transparent rounded-full animate-spin-slow"></div>
-            <div class="absolute inset-6 border-4 border-b-blue-500 border-t-transparent border-r-transparent border-l-transparent rounded-full animate-spin-slower"></div>
-            <div class="absolute inset-8 border-4 border-l-green-500 border-t-transparent border-r-transparent border-b-transparent rounded-full animate-spin"></div>
+            <div
+              class="absolute inset-0 border-4 border-cyan-500/30 rounded-full animate-ping"
+            ></div>
+            <div
+              class="absolute inset-2 border-4 border-t-cyan-500 border-r-transparent border-b-transparent border-l-transparent rounded-full animate-spin"
+            ></div>
+            <div
+              class="absolute inset-4 border-4 border-r-purple-500 border-t-transparent border-b-transparent border-l-transparent rounded-full animate-spin-slow"
+            ></div>
+            <div
+              class="absolute inset-6 border-4 border-b-blue-500 border-t-transparent border-r-transparent border-l-transparent rounded-full animate-spin-slower"
+            ></div>
+            <div
+              class="absolute inset-8 border-4 border-l-green-500 border-t-transparent border-r-transparent border-b-transparent rounded-full animate-spin"
+            ></div>
           </div>
-          <div class="mt-4 text-cyan-500 font-mono text-sm tracking-wider">SYSTEM INITIALIZING</div>
+          <div class="mt-4 text-cyan-500 font-mono text-sm tracking-wider">
+            SYSTEM INITIALIZING
+          </div>
         </div>
       </div>
 
@@ -70,10 +98,11 @@ interface Particle {
         <div class="grid grid-cols-12 gap-6">
           <!-- Sidebar -->
           <div class="col-span-12 md:col-span-3 lg:col-span-2">
-            <app-sidebar 
-              [systemStatus]="systemStatus" 
-              [securityLevel]="securityLevel" 
-              [networkStatus]="networkStatus">
+            <app-sidebar
+              [systemStatus]="systemStatus"
+              [securityLevel]="securityLevel"
+              [networkStatus]="networkStatus"
+            >
             </app-sidebar>
           </div>
 
@@ -81,15 +110,18 @@ interface Particle {
           <div class="col-span-12 md:col-span-9 lg:col-span-7">
             <div class="grid gap-6">
               <!-- System overview -->
-              <app-system-overview 
-                [cpuUsage]="cpuUsage" 
-                [memoryUsage]="memoryUsage" 
-                [networkStatus]="networkStatus">
+              <app-system-overview
+                [cpuUsage]="cpuUsage"
+                [memoryUsage]="memoryUsage"
+                [networkStatus]="networkStatus"
+              >
               </app-system-overview>
 
               <!-- Security & Alerts -->
               <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <app-security-status [securityLevel]="securityLevel"></app-security-status>
+                <app-security-status
+                  [securityLevel]="securityLevel"
+                ></app-security-status>
                 <app-system-alerts></app-system-alerts>
               </div>
 
@@ -103,17 +135,18 @@ interface Particle {
             <div class="grid gap-6">
               <!-- System time -->
               <app-system-time [currentTime]="currentTime"></app-system-time>
-              
+
               <!-- Quick actions -->
               <app-quick-actions></app-quick-actions>
-              
+
               <!-- Resource allocation -->
-              <app-resource-allocation 
-                [cpuUsage]="cpuUsage" 
-                [memoryUsage]="memoryUsage" 
-                [networkStatus]="networkStatus">
+              <app-resource-allocation
+                [cpuUsage]="cpuUsage"
+                [memoryUsage]="memoryUsage"
+                [networkStatus]="networkStatus"
+              >
               </app-resource-allocation>
-              
+
               <!-- Environment controls -->
               <app-environment-controls></app-environment-controls>
             </div>
@@ -124,9 +157,9 @@ interface Particle {
   `,
 })
 export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
-  @ViewChild("canvasRef") canvasRef!: ElementRef<HTMLCanvasElement>
+  @ViewChild('canvasRef') canvasRef!: ElementRef<HTMLCanvasElement>
 
-  theme: "dark" | "light" = "dark"
+  theme: 'dark' | 'light' = 'dark'
   systemStatus = 85
   cpuUsage = 42
   memoryUsage = 68
@@ -175,12 +208,12 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   toggleTheme(): void {
-    this.theme = this.theme === "dark" ? "light" : "dark"
+    this.theme = this.theme === 'dark' ? 'light' : 'dark'
   }
 
   private initCanvas(): void {
     const canvas = this.canvasRef.nativeElement
-    const ctx = canvas.getContext("2d")
+    const ctx = canvas.getContext('2d')
     if (!ctx) return
 
     const resizeCanvas = () => {
@@ -189,7 +222,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     resizeCanvas()
-    window.addEventListener("resize", resizeCanvas)
+    window.addEventListener('resize', resizeCanvas)
 
     // Create particles
     const particleCount = 100
@@ -248,4 +281,3 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
     animate()
   }
 }
-

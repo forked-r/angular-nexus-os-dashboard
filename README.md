@@ -20,7 +20,6 @@ A sleek, modern, and interactive dashboard built with Angular 19 and Tailwind CS
 - **Particle Background**: Dynamic particle animation in the background
 - **Customizable UI**: Built with Tailwind CSS for easy theming and customization.
 
-
 ## 🛠️ Technologies
 
 - **Angular 19**: Latest version of the Angular framework
@@ -39,21 +38,24 @@ A sleek, modern, and interactive dashboard built with Angular 19 and Tailwind CS
 ## 🔧 Installation
 
 1. Clone the repository:
+
    ```bash
    git clone https://github.com/forked-r/angular-nexus-os-dashboard
    cd angular-nexus-os-dashboard
 
+   ```
+
 2. Install dependencies:
 
-```npm install```
+`npm install`
 Start the development server:
-```npm start```
+`npm start`
 
 Open your browser and navigate to http://localhost:4200.
 
 Build
 To build the project for production, run:
-```npm run build```
+`npm run build`
 
 The production-ready files will be available in the dist/ directory.
 
@@ -67,8 +69,10 @@ Push to your fork:
 Open a pull request on the main repository.
 
 ## License
+
 This project is licensed under the MIT License. You are free to use, modify, and distribute this software as long as the original license is included.
 
 ## Acknowledgments
+
 Thanks to the open-source community for providing tools and libraries that made this project possible.
 Special thanks to contributors who help improve this project.

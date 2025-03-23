@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "futuristic-dashboard": {
+    "angular-nexus-os-dashboard": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -24,7 +24,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/futuristic-dashboard",
+            "outputPath": "dist/angular-nexus-os-dashboard",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": ["zone.js"],
@@ -62,10 +62,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "futuristic-dashboard:build:production"
+              "buildTarget": "angular-nexus-os-dashboard:build:production"
             },
             "development": {
-              "buildTarget": "futuristic-dashboard:build:development"
+              "buildTarget": "angular-nexus-os-dashboard:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -73,7 +73,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "futuristic-dashboard:build"
+            "buildTarget": "angular-nexus-os-dashboard:build"
           }
         },
         "test": {
@@ -94,4 +94,3 @@
     "analytics": false
   }
 }
-
