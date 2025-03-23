@@ -1,5 +1,5 @@
 {
-  "name": "futuristic-dashboard",
+  "name": "angular-nexus-os-dashboard",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -46,5 +46,15 @@
   },
   "lint-staged": {
     "*.{ts,js,json,css,scss,html}": "prettier --write"
+  },
+  "author": {
+    "name": "forked-r"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/forked-r/angular-nexus-os-dashboard"
+  },
+  "bugs": {
+    "url": "https://github.com/forked-r/angular-nexus-os-dashboard/issues"
   }
 }
