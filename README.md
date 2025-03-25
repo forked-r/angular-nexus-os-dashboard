@@ -2,7 +2,7 @@
 
 A sleek, modern, and interactive dashboard built with Angular 19 and Tailwind CSS. This project showcases a futuristic UI design with real-time data visualization, system monitoring, and interactive components.
 
-![Angular Nexus OS Dashboard Preview](https://angular-19-tailwind-dashboard.netlify.app/)
+[Angular Nexus OS Dashboard Preview](https://angular-19-tailwind-dashboard.netlify.app/)
 
 ## 🚀 Features
 
